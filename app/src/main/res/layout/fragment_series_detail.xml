@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SeriesDetailFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <RelativeLayout
+          android:layout_margin="@dimen/padding_20"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+          <FrameLayout
+              android:id="@+id/container1"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              />
+
+          <RelativeLayout
+
+              android:layout_below="@id/container1"
+              android:id="@+id/datacontent"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <androidx.cardview.widget.CardView
+                  android:id="@+id/cardimage"
+                  android:layout_width="@dimen/image_item_width"
+                  android:layout_height="@dimen/image_item_height"
+                  app:cardCornerRadius="@dimen/corner_radius">
+                  <ImageView
+                      android:id="@+id/image"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:src="@drawable/sampleimage"/>
+
+              </androidx.cardview.widget.CardView>
+              <TextView
+                  android:id="@+id/series_name"
+                  android:layout_toRightOf="@id/cardimage"
+                  android:fontFamily="@font/lobster"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:padding="20dp"
+                  android:textSize="30sp"
+                  android:textStyle="bold"
+                  android:gravity="center"
+                  android:textColor="@color/colorPink"
+                  android:text="Series Name"/>
+
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_toRightOf="@id/cardimage"
+                  android:layout_below="@id/series_name">
+
+                  <TextView
+                      android:drawableLeft="@drawable/ic_view"
+                      android:layout_width="match_parent"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"
+                      android:text="30"
+                      android:drawablePadding="10dp"
+                      android:id="@+id/txtviewcount"
+                      android:textSize="@dimen/view_count_text_size"
+                      android:textColor="@color/infoColor"
+                      android:textStyle="bold"
+                      android:padding="20dp"/>
+
+                  <com.google.android.material.floatingactionbutton.FloatingActionButton
+                      android:id="@+id/txtepcount"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:backgroundTint="@color/successColor"
+                      android:text="16"
+                      android:layout_marginRight="20dp"
+                      android:layout_gravity="center"
+                      android:background="@color/successColor"
+                      android:textColor="@color/color_white"/>
+
+
+              </LinearLayout>
+          </RelativeLayout>
+          <androidx.recyclerview.widget.RecyclerView
+              android:layout_marginVertical="@dimen/padding_20"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_below="@id/datacontent"
+              android:id="@+id/eplist"
+             />
+
+          <FrameLayout
+              android:layout_marginBottom="@dimen/padding_20"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/container2"
+              android:layout_below="@id/eplist"/>
+          <com.google.android.ads.nativetemplates.TemplateView
+
+              android:id="@+id/smalltemplate"
+              android:layout_below="@id/container2"
+          app:gnt_template_type="@layout/gnt_medium_template_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />
+          <com.google.android.ads.nativetemplates.TemplateView
+              android:layout_margin="20dp"
+              android:id="@+id/largetemplate"
+              android:layout_below="@id/smalltemplate"
+              app:gnt_template_type="@layout/gnt_medium_template_view"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" />
+      </RelativeLayout>
+  </ScrollView>
+</FrameLayout>

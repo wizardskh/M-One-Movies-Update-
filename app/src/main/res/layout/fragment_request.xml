@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RequestFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+<LinearLayout
+    android:layout_margin="@dimen/padding_20"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container1"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/request"
+        android:layout_gravity="center"/>
+    <TextView
+        style="@style/TextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Movie or Series Name"
+        android:padding="10dp"/>
+    <EditText
+        style="@style/TextStyle"
+        android:background="@drawable/edtbg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/edtname"
+        android:hint="Movie or Series Name"
+        android:paddingLeft="10dp"
+        />
+    <TextView
+        style="@style/TextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Movie or Series Image"
+        android:padding="10dp"/>
+    <EditText
+        style="@style/TextStyle"
+        android:background="@drawable/edtbg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/edtimage"
+        android:hint="Movies or Series Image"
+        android:paddingLeft="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnsave"
+            android:layout_margin="@dimen/padding_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_20"
+            android:layout_weight="1"
+            android:text="Request"
+            android:textAllCaps="false"
+            android:background="@color/infoColor"
+            android:textColor="@color/color_gray_white"
+            android:drawableLeft="@drawable/ic_request"
+            android:drawableTint="@color/color_gray_white"/>
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/btncancel"
+            android:layout_margin="@dimen/padding_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_20"
+            android:layout_weight="1"
+            android:text="Cancel"
+            android:background="@color/errorColor"
+            android:textColor="@color/color_gray_white"
+            android:drawableLeft="@drawable/ic_close"
+            android:drawableTint="@color/color_gray_white"/>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container2"
+       />
+</LinearLayout>
+</FrameLayout>
