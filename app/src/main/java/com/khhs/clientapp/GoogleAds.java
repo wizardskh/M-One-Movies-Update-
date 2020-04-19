@@ -190,7 +190,7 @@ public class GoogleAds {
     }
 
 
-    TemplateView largetemplate,smalltemplate;
+    public static TemplateView largetemplate,smalltemplate;
 
 
 

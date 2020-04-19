@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import project.aamir.sheikh.circletextview.CircleTextView;
 
@@ -17,12 +18,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyItem
 
     ArrayList<CategoryModel> mArrayList;
     Context context;
+    FragmentManager fm;
 
 
-    public CategoryAdapter(ArrayList<CategoryModel> mArrayList, Context context) {
+
+    public CategoryAdapter(ArrayList<CategoryModel> mArrayList, Context context,FragmentManager fm) {
 
         this.mArrayList = mArrayList;
         this.context = context;
+        this.fm = fm;
+
     }
 
 
@@ -44,7 +49,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyItem
         holder.mCircleTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseConnect fConnect = new FirebaseConnect(context);
+                FirebaseConnect fConnect = new FirebaseConnect(context,fm);
                 if(mArrayList.get(position).categoryName.equals(context.getString(R.string.all_str)))
                 {
                     fConnect.getAllMovies();

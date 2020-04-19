@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.Dimension;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -26,9 +27,12 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -85,6 +89,9 @@ public class VideoDetailFragment extends Fragment {
     boolean isfullscreen;
     ImageView fullscreenButton;
     SimpleExoPlayerView playerView;
+
+    RelativeLayout playerContent;
+
    public static SimpleExoPlayer player;
     MovieModel movieModel;
     ProgressBar progressBar;
@@ -95,6 +102,9 @@ public class VideoDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        myView = inflater.inflate(R.layout.fragment_video_detail, container, false);
+
+       playerContent = myView.findViewById(R.id.playerContent);
+
 
 
        fullscreenButton = myView.findViewById(R.id.fullscreen);
@@ -111,18 +121,21 @@ public class VideoDetailFragment extends Fragment {
                    DisplayMetrics displayMetrics = new DisplayMetrics();
                    getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
                    int width = (int)(displayMetrics.widthPixels/getActivity().getResources().getDisplayMetrics().density);
-                   int height = (int)(300*getContext().getResources().getDisplayMetrics().density);
+
+                    int height = (int)(300*getContext().getResources().getDisplayMetrics().density);
                    RelativeLayout.LayoutParams params =(RelativeLayout.LayoutParams) playerView.getLayoutParams();
                     params.width = params.MATCH_PARENT;
                     params.height = height;
                     playerView.setLayoutParams(params);
+                    playerContent.setLayoutParams(params);
                     isfullscreen=false;
-                   /* largetemplate.setVisibility(View.VISIBLE);
-                    smalltemplate.setVisibility(View.VISIBLE);*/
+
+
                     MainActivity.toolbar.setVisibility(View.VISIBLE);
                }
                else
                {
+
                    getActivity().getWindow().getDecorView().setSystemUiVisibility(
                            View.SYSTEM_UI_FLAG_FULLSCREEN |
                                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY|
@@ -131,17 +144,31 @@ public class VideoDetailFragment extends Fragment {
                    getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                    DisplayMetrics displayMetrics = new DisplayMetrics();
                    getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-                   int width = (int)(displayMetrics.widthPixels/getActivity().getResources().getDisplayMetrics().density);
-                   int height = (int)(displayMetrics.heightPixels/getContext().getResources().getDisplayMetrics().density);
+                   //int height = (int)(displayMetrics.heightPixels/getResources().getDisplayMetrics().density)
 
+
+                 int height = (int)(displayMetrics.heightPixels/getResources().getDisplayMetrics().density);
+
+                   int width = (int)(displayMetrics.widthPixels/getActivity().getResources().getDisplayMetrics().density);
+
+
+                   Point point = new Point();
+                   getActivity().getWindowManager().getDefaultDisplay().getRealSize(point);
                    RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)playerView.getLayoutParams();
                    params.width = params.MATCH_PARENT;
-                   params.height = height;
+                   params.height =point.y;
+
+
+
                    playerView.setLayoutParams(params);
-                   /*largetemplate.setVisibility(View.GONE);
-                   smalltemplate.setVisibility(View.GONE);*/
+                   playerContent.setLayoutParams(params);
+
+
                    MainActivity.toolbar.setVisibility(View.GONE);
                    isfullscreen=true;
+
+
+
                }
            }
        });

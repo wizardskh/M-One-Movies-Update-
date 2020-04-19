@@ -53,8 +53,7 @@ View myView;
      return myView;
     }
 
-    FrameLayout container1,container2;
-    AdView adView1,adView2;
+
 
 
 

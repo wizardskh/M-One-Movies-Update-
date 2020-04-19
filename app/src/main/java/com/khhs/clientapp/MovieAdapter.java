@@ -36,6 +36,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         interstitialAd = googleAds.loadInterstiialAds(context);
 
 
+    }public MovieAdapter(ArrayList<MovieModel> movieModels, Context context) {
+        this.movieModels = movieModels;
+        this.context = context;
+        this.fm = fm;
+
+        GoogleAds googleAds = new GoogleAds();
+        interstitialAd = googleAds.loadInterstiialAds(context);
+
+
     }
 
 

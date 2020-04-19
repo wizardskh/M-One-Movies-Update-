@@ -209,7 +209,7 @@ public class FirebaseConnect {
                 }
 
                 LinearLayoutManager lm = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
-              CategoryAdapter adapter = new CategoryAdapter(categoryModels,context);
+              CategoryAdapter adapter = new CategoryAdapter(categoryModels,context,fm);
                HomeFragment.allCategory.setAdapter(adapter);
                HomeFragment.allCategory.setLayoutManager(lm);
                HomeFragment.txtallcategory.setText("All Category("+categoryModels.size()+")");
@@ -287,6 +287,7 @@ public class FirebaseConnect {
     public void getEpBySeriesName(final String seriesName)
     {
         episodeRef.whereEqualTo("episodeSeries",seriesName)
+                .orderBy("createdAt")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {

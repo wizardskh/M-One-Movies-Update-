@@ -19,6 +19,8 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+      requestWindowFeature(Window.FEATURE_NO_TITLE);
+getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_main);
         numberpin =findViewById(R.id.numberpin);
         edtnumber = findViewById(R.id.number);
@@ -127,13 +132,13 @@ public class MainActivity extends AppCompatActivity {
                     setTitle(getString(R.string.request_str));
                 }
 
-                else if(item.getItemId() == R.id.about_menu)
+                /*else if(item.getItemId() == R.id.about_menu)
                 {
                     setFragment(new AboutFragment());
                     setTitle(getString(R.string.about_frag)
                     );
                     setTitle(getString(R.string.about_frag));
-                }
+                }*/
 
                 if(VideoDetailFragment.player!=null)
                 {
@@ -281,6 +286,38 @@ public class MainActivity extends AppCompatActivity {
         if(VideoDetailFragment.player!=null)
         {
             VideoDetailFragment.player.stop();
+        }
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(VideoDetailFragment.player!=null)
+        {
+            VideoDetailFragment.player.setPlayWhenReady(false);
+        }
+
+
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(VideoDetailFragment.player!=null)
+        {
+            VideoDetailFragment.player.setPlayWhenReady(false);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if(VideoDetailFragment.player!=null)
+        {
+            VideoDetailFragment.player.setPlayWhenReady(true);
         }
     }
 }

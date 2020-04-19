@@ -28,11 +28,10 @@
     <string name="native_unit_id">ca-app-pub-3940256099942544/2247696110</string>
     <string name="rewareded_id">ca-app-pub-3940256099942544/5224354917</string>
 
-<!--
-    //Real Ads
-    <string name="app_id">ca-app-pub-6076713937691848~3938881175</string>
-    <string name="banner_unit_id">ca-app-pub-6076713937691848/7494982805</string>
-    <string name="interstitial_unit_id">ca-app-pub-6076713937691848/6920267733</string>
-    <string name="native_unit_id">ca-app-pub-6076713937691848/7630714174</string>
-    <string name="rewareded_id">ca-app-pub-6076713937691848/9747054709</string>-->
+   <!-- //Real Ads
+    <string name="app_id">ca-app-pub-1626642663383081~8071360006</string>
+    <string name="banner_unit_id">ca-app-pub-1626642663383081/9986350553</string>
+    <string name="interstitial_unit_id">ca-app-pub-1626642663383081/1919216322</string>
+    <string name="native_unit_id">ca-app-pub-1626642663383081/4925595561</string>
+    <string name="rewareded_id">ca-app-pub-1626642663383081/6238677234</string>-->
 </resources>

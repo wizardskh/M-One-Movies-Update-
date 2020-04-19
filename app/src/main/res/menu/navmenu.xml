@@ -25,10 +25,10 @@
         android:title="Share"
         android:icon="@drawable/ic_share"/>
 
-    <item
+   <!-- <item
         android:id="@+id/about_menu"
         android:title="About"
-        android:icon="@drawable/ic_about"/>
+        android:icon="@drawable/ic_about"/>-->
 
 
 </menu>
