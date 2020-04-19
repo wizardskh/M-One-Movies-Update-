@@ -1,2 +1,1 @@
-"# clientapp" 
-"# for ITONE" 
+Streaming Movie Client App
