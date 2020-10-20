@@ -16,14 +16,14 @@
         android:id="@+id/search_menu"
         android:title="Search"
         android:icon="@drawable/ic_search"/>
-    <item
+    <!--<item
         android:id="@+id/request_menu"
         android:title="Request"
-        android:icon="@drawable/ic_request"/>
- <item
+        android:icon="@drawable/ic_request"/>-->
+<!-- <item
         android:id="@+id/share_menu"
         android:title="Share"
-        android:icon="@drawable/ic_share"/>
+        android:icon="@drawable/ic_share"/>-->
 
    <!-- <item
         android:id="@+id/about_menu"
