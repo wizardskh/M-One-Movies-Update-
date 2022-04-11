@@ -13,6 +13,7 @@ import es.dmoral.toasty.Toasty;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -25,44 +26,53 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.ads.BuildConfig;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
     static Toolbar toolbar;
-    static String currentFrag="";
     static String preFrag = "";
+    static String currentFrag="";
     DrawerLayout drawer;
-    LinearLayout numberpin,maindata;
-    EditText edtnumber;
-    Button sure;
+    HomeFragment homeFragment;
+    View myView;
+    LinearLayout maindata;   //   ခန ထည့္ထား
+    //    LinearLayout numberpin,maindata;
+//    EditText edtnumber;
+//    Button sure;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      requestWindowFeature(Window.FEATURE_NO_TITLE);
-getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
 
 
-        numberpin =findViewById(R.id.numberpin);
-        edtnumber = findViewById(R.id.number);
-        sure = findViewById(R.id.sure);
-        maindata = findViewById(R.id.maindata);
-        sure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(edtnumber.getText().toString().trim().equals(getString(R.string.number_pin)))
-                {
-                    setFragment(new HomeFragment());
-                    numberpin.setVisibility(View.GONE);
+//        numberpin =findViewById(R.id.numberpin);
+//        edtnumber = findViewById(R.id.number);
+//        sure = findViewById(R.id.sure);
+        setFragment(new HomeFragment());    //   အသစ္
+        maindata = findViewById(R.id.maindata);  //   ဒီေကာင္က main activityကိုပျတာ
+        maindata.setVisibility(View.VISIBLE);
 
-                    maindata.setVisibility(View.VISIBLE);
-                }
-                else {
-                    Toasty.error(getApplicationContext(),"နံပါတ်မှားနေပါသည်",Toasty.LENGTH_LONG).show();
-                }
-            }
-        });
+//        sure.setOnClickListener(new View.OnClickListener() {      //  ခနပိတ္က်ိသည္
+//            @Override
+//            public void onClick(View v) {
+//                if(edtnumber.getText().toString().trim().equals(getString(R.string.number_pin)))
+//                {
+//                    setFragment(new HomeFragment());
+//                    numberpin.setVisibility(View.GONE);
+//
+//                    maindata.setVisibility(View.VISIBLE);
+//                }
+//                else {
+//                    Toasty.error(getApplicationContext(),"နံပါတ်မှားနေပါသည်",Toasty.LENGTH_LONG).show();
+//                }
+//            }
+//        });
+
+
         drawer = findViewById(R.id.drawer);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -80,11 +90,11 @@ getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.L
 
         View headerView  = navigationView.getHeaderView(0);
         TextView txtVersion = headerView.findViewById(R.id.versionName);
-        txtVersion.setText("Version " +BuildConfig.VERSION_NAME);
+        txtVersion.setText("Version " + BuildConfig.VERSION_NAME);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId()==R.id.home_menu)
+                if(item.getItemId()== R.id.home_menu)
                 {
                     setFragment(new HomeFragment());
                     setTitle(getString(R.string.home_frag));
@@ -103,41 +113,41 @@ getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.L
                     currentFrag =getString( R.string.series_frag);
                 }
 
-               /* else if(item.getItemId() == R.id.share_menu)
+                else if(item.getItemId() == R.id.share_menu)
                 {
                     Intent shareIntent = new Intent();
 
                     currentFrag = getString(R.string.share_frag);
                     shareIntent.setAction(Intent.ACTION_SEND);
 
-                    shareIntent.putExtra(Intent.EXTRA_TEXT,"https://play.google.com/store/apps/details?id="+BuildConfig.APPLICATION_ID);
+                    //   shareIntent.putExtra(Intent.EXTRA_TEXT,"https://play.google.com/store/apps/details?id="+BuildConfig.APPLICATION_ID);
 
-
-                   *//* shareIntent.putExtra(Intent.EXTRA_TEXT,"https://www.mediafire.com/file/2p2k8wtb1vvamii/cartoon_cafev2.apk/file");*//*
+                    shareIntent.putExtra(Intent.EXTRA_TEXT,"https://drive.google.com/file/d/1OLgxVkLXqKFjEDJsl4kQLSk7U1pnvce_/view?usp=sharing");
+                    // shareIntent.putExtra(Intent.EXTRA_TEXT,"https://www.mediafire.com/file/2p2k8wtb1vvamii/cartoon_cafev2.apk/file");*//*
                     shareIntent.setType("text/plain");
                     startActivity(shareIntent);
-                }*/
-                else if(item.getItemId()==R.id.search_menu)
+                }
+                else if(item.getItemId()== R.id.search_menu)
                 {
                     currentFrag=getString(R.string.search_frag);
                     setFragment(new SearchFragment());
                     setTitle(currentFrag);
 
                 }
-               /* else if(item.getItemId() == R.id.request_menu)
-                {
-                    currentFrag  = getString(R.string.request_str);
-                    setFragment(new RequestFragment());
-                    setTitle(getString(R.string.request_str));
-                }*/
+//                else if(item.getItemId() == R.id.request_menu)
+//                {
+//                    currentFrag  = getString(R.string.request_str);
+//                    setFragment(new RequestFragment());
+//                    setTitle(getString(R.string.request_str));
+//                }
 
-                /*else if(item.getItemId() == R.id.about_menu)
-                {
-                    setFragment(new AboutFragment());
-                    setTitle(getString(R.string.about_frag)
-                    );
-                    setTitle(getString(R.string.about_frag));
-                }*/
+//                else if(item.getItemId() == R.id.about_menu)
+//                {
+//                    setFragment(new AboutFragment());
+//                    setTitle(getString(R.string.about_frag)
+//                    );
+//                    setTitle(getString(R.string.about_frag));
+//                }
 
                 if(VideoDetailFragment.player!=null)
                 {
@@ -149,6 +159,8 @@ getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.L
         });
 
     }
+
+
 
     public void setFragment(Fragment f)
     {
@@ -191,10 +203,10 @@ getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.L
             }
         }
         else if(currentFrag.equals(getString(R.string.movie_frag)) ||
-        currentFrag.equals(getString(R.string.request_str))
-        || currentFrag.equals(getString(R.string.series_frag))
-        || currentFrag.equals(getString(R.string.about_frag))
-        ||currentFrag.equals(getString(R.string.search_frag))
+                currentFrag.equals(getString(R.string.request_str))
+                || currentFrag.equals(getString(R.string.series_frag))
+                || currentFrag.equals(getString(R.string.about_frag))
+                ||currentFrag.equals(getString(R.string.search_frag))
         )
         {
             setFragment(new HomeFragment());
@@ -273,8 +285,18 @@ getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.L
                 setTitle(currentFrag);
             }
             VideoDetailFragment.player.stop();
-           setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-           MainActivity.toolbar.setVisibility(View.VISIBLE);
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            MainActivity.toolbar.setVisibility(View.VISIBLE);
+        }
+        else if (currentFrag.equals("LiveTV"))
+        {
+            setFragment(new HomeFragment());
+            currentFrag=getString(R.string.home_frag);
+            setTitle(currentFrag);
+//            setFragment(new SearchFragment());
+//            currentFrag = getString(R.string.search_frag);
+//            setTitle(currentFrag);
+//            preFrag = getString(R.string.movie_det_frag);
         }
         else
         {

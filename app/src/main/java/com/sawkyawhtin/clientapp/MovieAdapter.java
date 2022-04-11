@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.InterstitialAd;
@@ -127,10 +128,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
     public class MovieHolder extends RecyclerView.ViewHolder{
         ImageView movieImage;
+        TextView textView;
 
         public MovieHolder(@NonNull View itemView) {
             super(itemView);
             movieImage = itemView.findViewById(R.id.image);
+            textView = itemView.findViewById(R.id.text);
         }
     }
 

@@ -6,99 +6,73 @@
     tools:context=".AboutFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_margin="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/container1"
-                />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/itone"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Version "
-                android:textSize="30sp"
-                android:textStyle="bold"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/successColor"/>
-            <TextView
-                android:padding="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="1.0.0"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Developed By "
-                android:textSize="30sp"
-                android:textStyle="bold"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/successColor"/>
-            <TextView
-                android:padding="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Khin Htet Htet Hsu"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Email "
-                android:textSize="30sp"
-                android:textStyle="bold"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/successColor"/>
-            <TextView
-                android:padding="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="itomemm@gmail.com"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:layout_margin="30dp"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+           <ImageView
+               android:layout_width="150dp"
+               android:layout_height="150dp"
+               android:scaleType="centerCrop"
+               android:src="@drawable/mone"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Version "
+               android:textSize="30sp"
+               android:textStyle="bold"/>
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="5dp"
+               android:background="@color/colorAccent"/>
+           <TextView
+               android:padding="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="1.0.0"
+               android:textStyle="bold"
+               android:textSize="20sp"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Developed By "
+               android:textSize="30sp"
+               android:textStyle="bold"/>
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="5dp"
+               android:background="@color/colorAccent"/>
+           <TextView
+               android:padding="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="TPT"
+               android:textStyle="bold"
+               android:textSize="20sp"/>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Our Facebook Page"
+               android:textSize="30sp"
+               android:textStyle="bold"/>
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="5dp"
+               android:background="@color/colorAccent"/>
+           <TextView
+               android:padding="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="TPT Channel"
+               android:textStyle="bold"
+               android:textSize="20sp"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Phone "
-                android:textSize="30sp"
-                android:textStyle="bold"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="@color/successColor"/>
-            <TextView
-                android:padding="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="09976375970"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/container2"
-                />
-        </LinearLayout>
-    </ScrollView>
+
+       </LinearLayout>
+   </ScrollView>
 
 </FrameLayout>

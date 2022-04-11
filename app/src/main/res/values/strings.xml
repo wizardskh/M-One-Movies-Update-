@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Client App</string>
+    <string name="app_name">MOne Movies</string>
     <string name="openDrawer">Open Drawer</string>
     <string name="closeDrawer">close Darwer</string>
 
@@ -22,12 +22,17 @@
 
 
     //Test Ads
-   <string name="app_id">ca-app-pub-9372372238168862~1201882712</string>
+    <string name="app_id">ca-app-pub-9372372238168862~1201882712</string>
     <string name="banner_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="interstitial_unit_id">ca-app-pub-3940256099942544/1033173712</string>
     <string name="native_unit_id">ca-app-pub-3940256099942544/2247696110</string>
     <string name="rewareded_id">ca-app-pub-3940256099942544/5224354917</string>
-
+    <string name="title_activity_video_view">VideoView</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 
 
 </resources>

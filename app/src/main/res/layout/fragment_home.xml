@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:background="@color/colorPrimary">
 
     <!-- TODO: Update blank fragment layout -->
  <ScrollView
@@ -12,26 +13,30 @@
      android:layout_height="match_parent"
      >
      <RelativeLayout
+
          android:layout_width="match_parent"
          android:layout_height="match_parent"
          >
          <com.synnapps.carouselview.CarouselView
              android:id="@+id/carouselView"
+             android:elevation="@dimen/cardview_compat_inset_shadow"
              android:layout_width="match_parent"
              android:layout_height="200dp"
              app:fillColor="@color/colorAccent"
              app:pageColor="#00000000"
              app:radius="6dp"
              app:slideInterval="3000"
-             app:strokeColor="@color/colorPink"
+             app:strokeColor="@color/color_white"
              app:strokeWidth="1dp"/>
          <TextView
+
              android:id="@+id/txtcategory"
              style="@style/TitleStyle"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:layout_below="@id/carouselView"
-             android:text="All Category" />
+             android:text="All Category"
+             android:textColor="@color/color_white"/>
 
          <androidx.recyclerview.widget.RecyclerView
              android:layout_below="@id/txtcategory"
@@ -50,7 +55,8 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:layout_below="@id/adcontainer"
-             android:text="All Movie" />
+             android:text="All Movie"
+             android:textColor="@color/color_white"/>
 
          <androidx.recyclerview.widget.RecyclerView
              android:layout_below="@id/txtmovie"
@@ -69,13 +75,29 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:layout_below="@id/adcontainer2"
-             android:text="All Series" />
+             android:text="All Series"
+             android:textColor="@color/color_white"/>
 
          <androidx.recyclerview.widget.RecyclerView
              android:layout_below="@id/txtseries"
              android:layout_width="match_parent"
              android:layout_height="@dimen/image_item_height"
              android:id="@+id/allseies"/>
+
+         <TextView
+             android:id="@+id/txtLiveTV"
+             style="@style/TitleStyle"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/allseies"
+             android:text="All Live TV"
+             android:textColor="@color/color_white"/>
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:layout_below="@id/txtLiveTV"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/image_item_height"
+             android:id="@+id/alllivetv"/>
 
          <FrameLayout
              android:layout_below="@id/allseies"

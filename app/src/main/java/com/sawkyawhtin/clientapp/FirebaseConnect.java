@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class FirebaseConnect {
 
     FirebaseFirestore db;
-    CollectionReference movieRef,seriesRef,categoryRef,episodeRef,settingRef;
+    CollectionReference movieRef,seriesRef,categoryRef,episodeRef,settingRef,liveTVRef;
 
     Context context;
     FragmentManager fm;
@@ -35,6 +35,8 @@ public class FirebaseConnect {
         categoryRef = db.collection("categories");
         episodeRef = db.collection("episodes");
         settingRef = db.collection("setting");
+        liveTVRef = db.collection("livetv");
+
     }
 
     public FirebaseConnect(Context context,FragmentManager fm) {
@@ -46,40 +48,42 @@ public class FirebaseConnect {
         episodeRef = db.collection("episodes");
         settingRef = db.collection("setting");
         this.fm = fm;
+        liveTVRef = db.collection("livetv");
     }
     public void showSlide()
     {
         settingRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
-           @Override
-           public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-               SettingModel settingModel = new SettingModel();
-               HomeFragment.sampleImages.clear();
-               for(DocumentSnapshot s: queryDocumentSnapshots)
-               {
-                   settingModel  = s.toObject(SettingModel.class);
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                SettingModel settingModel = new SettingModel();
+                HomeFragment.sampleImages.clear();
+                for(DocumentSnapshot s: queryDocumentSnapshots)
+                {
+                    settingModel  = s.toObject(SettingModel.class);
 
-               }
-               if(settingModel.useSlideShow.equals("Yes"))
-               {
+                }
+                if(settingModel.useSlideShow.equals("Yes"))
+                {
 
-                   HomeFragment.sampleImages.add(settingModel.slide1);
-                   HomeFragment.sampleImages.add(settingModel.slide2);
-                   HomeFragment.sampleImages.add(settingModel.slide3);
-                   HomeFragment.sampleImages.add(settingModel.slide4);
-                   HomeFragment.sampleImages.add(settingModel.slide5);
+                    HomeFragment.sampleImages.add(settingModel.slide1);
+                    HomeFragment.sampleImages.add(settingModel.slide2);
+                    HomeFragment.sampleImages.add(settingModel.slide3);
+                    HomeFragment.sampleImages.add(settingModel.slide4);
+                    HomeFragment.sampleImages.add(settingModel.slide5);
 
-                   HomeFragment.carouselView.setPageCount(HomeFragment.sampleImages.size());
 
-                   HomeFragment.carouselView.setImageListener(HomeFragment.imageListener);
+                    HomeFragment.carouselView.setPageCount(HomeFragment.sampleImages.size());
 
-               }
-               else
-               {
-                   HomeFragment.carouselView.setVisibility(View.GONE);
+                    HomeFragment.carouselView.setImageListener(HomeFragment.imageListener);
 
-               }
-           }
-       });
+                }
+                else
+                {
+                    HomeFragment.carouselView.setVisibility(View.GONE);
+
+                }
+            }
+        });
     }
 
     public void getAllMovies()
@@ -105,25 +109,25 @@ public class FirebaseConnect {
     {
         movieRef.whereEqualTo("movieCategory",category)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
 
 
-                    ArrayList<MovieModel> movieModels = new ArrayList<>();
-                    for (DocumentSnapshot s : queryDocumentSnapshots) {
-                        movieModels.add(s.toObject(MovieModel.class));
+                        ArrayList<MovieModel> movieModels = new ArrayList<>();
+                        for (DocumentSnapshot s : queryDocumentSnapshots) {
+                            movieModels.add(s.toObject(MovieModel.class));
+                        }
+                        MovieAdapter adapter = new MovieAdapter(movieModels, context,fm);
+                        HomeFragment.allMovie.setAdapter(adapter);
+                        LinearLayoutManager lm = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
+                        HomeFragment.allMovie.setLayoutManager(lm);
+                        HomeFragment.txtallmovie.setText(category + " Movie (" + movieModels.size() + ")");
+
+
+
+
                     }
-                    MovieAdapter adapter = new MovieAdapter(movieModels, context,fm);
-                    HomeFragment.allMovie.setAdapter(adapter);
-                    LinearLayoutManager lm = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
-                    HomeFragment.allMovie.setLayoutManager(lm);
-                    HomeFragment.txtallmovie.setText(category + " Movie (" + movieModels.size() + ")");
-
-
-
-
-            }
-        });
+                });
 
 
     }
@@ -210,10 +214,10 @@ public class FirebaseConnect {
                 }
 
                 LinearLayoutManager lm = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
-              CategoryAdapter adapter = new CategoryAdapter(categoryModels,context,fm);
-               HomeFragment.allCategory.setAdapter(adapter);
-               HomeFragment.allCategory.setLayoutManager(lm);
-               HomeFragment.txtallcategory.setText("All Category("+categoryModels.size()+")");
+                CategoryAdapter adapter = new CategoryAdapter(categoryModels,context,fm);
+                HomeFragment.allCategory.setAdapter(adapter);
+                HomeFragment.allCategory.setLayoutManager(lm);
+                HomeFragment.txtallcategory.setText("All Category("+categoryModels.size()+")");
             }
         });
     }
@@ -243,7 +247,7 @@ public class FirebaseConnect {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                 ArrayList<SeriesModel> seriesModels = new ArrayList<>();
-               ArrayList<String> seriesIds = new ArrayList<>();
+                ArrayList<String> seriesIds = new ArrayList<>();
                 for(DocumentSnapshot s: queryDocumentSnapshots)
                 {
                     seriesIds.add(s.getId());
@@ -252,7 +256,7 @@ public class FirebaseConnect {
                 SeriesAdapter adapter = new SeriesAdapter(seriesModels,context,fm,seriesIds);
                 SeriesFragment.allseries.setAdapter(adapter);
                 GridLayoutManager gm = new GridLayoutManager(context,3);
-               SeriesFragment.allseries.setLayoutManager(gm);
+                SeriesFragment.allseries.setLayoutManager(gm);
                 SeriesFragment.txtallseries.setText("All Series("+ seriesModels.size()+")");
             }
         });
@@ -297,7 +301,7 @@ public class FirebaseConnect {
                         {
                             models.add(s.toObject(EpisodeModel.class));
                         }
-                       EpisodeAdapter adapter = new EpisodeAdapter(models,context,fm);
+                        EpisodeAdapter adapter = new EpisodeAdapter(models,context,fm);
                         SeriesDetailFragment.epCount.setImageBitmap(SeriesDetailFragment.textAsBitmap(models.size()+"", 10, Color.WHITE));
                         LinearLayoutManager lm = new LinearLayoutManager(context,RecyclerView.VERTICAL,false);
                         SeriesDetailFragment.list.setAdapter(adapter);
@@ -319,7 +323,7 @@ public class FirebaseConnect {
                 MovieAdapter adapter = new MovieAdapter(movieModels,context,fm);
                 SearchFragment.allMovie.setAdapter(adapter);
                 LinearLayoutManager lm = new LinearLayoutManager(context, RecyclerView.HORIZONTAL,false);
-               SearchFragment.allMovie.setLayoutManager(lm);
+                SearchFragment.allMovie.setLayoutManager(lm);
                 SearchFragment.txtallmovie.setText("All Movie ("+ movieModels.size()+")");
             }
         });
@@ -376,6 +380,25 @@ public class FirebaseConnect {
                 LinearLayoutManager lm = new LinearLayoutManager(context, RecyclerView.HORIZONTAL,false);
                 SearchFragment.allSeries.setLayoutManager(lm);
                 SearchFragment.txtallseries.setText("Search Series : "+query+ " ("+ seriesModels.size()+")");
+            }
+        });
+    }
+
+    public void getAllLiveTV() {
+        liveTVRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                ArrayList<LiveTvModel> liveTvModels = new ArrayList<>();
+                for (DocumentSnapshot snapshot: queryDocumentSnapshots) {
+
+                    liveTvModels.add(snapshot.toObject(LiveTvModel.class));
+                }
+                {
+                    LiveTVAdapter adapter = new LiveTVAdapter(liveTvModels,context,fm);
+                    HomeFragment.allLiveTV.setAdapter(adapter);
+                    HomeFragment.allLiveTV.setLayoutManager(new LinearLayoutManager(context,RecyclerView.HORIZONTAL,false));
+                    HomeFragment.txtAllLiveTV.setText("Live TV("+adapter.getItemCount()+")");
+                }
             }
         });
     }

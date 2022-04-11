@@ -2,7 +2,9 @@
 <network-security-config>
 
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">127.0.0.1</domain>
+        <domain includeSubdomains="true">src="https://googleads.g.doubleclick.net/pagead/html/r20201014/r20190131/zrt_lookup.html#"</domain>
     </domain-config>
 
 </network-security-config>
+
+

@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:openDrawer="left"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryDark">
 
 
     <RelativeLayout
@@ -20,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <androidx.appcompat.widget.Toolbar
-                android:background="@color/color_white"
+                android:background="@color/colorPink"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
                 android:id="@+id/toolbar"/>
@@ -30,51 +31,51 @@
                 android:id="@+id/navContent"/>
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_centerInParent="true"
-            android:layout_margin="20dp"
-            android:id="@+id/numberpin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:layout_margin="20dp"-->
+<!--            android:id="@+id/numberpin"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
 
-            <TextView
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="၅(၆)လုံးကို"
-                android:padding="20dp"
-                android:textSize="30sp"
-                android:textColor="@color/colorPrimary"/>
-            <TextView
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="(အင်္ဂလိပ်လိုရိုက်ထည့်ပါ)"
-                android:padding="20dp"
-                android:textSize="30sp"
-                android:textColor="@color/colorPrimary"/>
+<!--            <TextView-->
+<!--                android:gravity="center"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="၅(၆)လုံးကို"-->
+<!--                android:padding="20dp"-->
+<!--                android:textSize="30sp"-->
+<!--                android:textColor="@color/colorPrimary"/>-->
+<!--            <TextView-->
+<!--                android:gravity="center"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="(အင်္ဂလိပ်လိုရိုက်ထည့်ပါ)"-->
+<!--                android:padding="20dp"-->
+<!--                android:textSize="30sp"-->
+<!--                android:textColor="@color/colorPrimary"/>-->
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/edtbg"
-                android:hint="၅၅၅၅၅၅"
-                android:id="@+id/number"
-                android:padding="20dp"/>
+<!--            <EditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:background="@drawable/edtbg"-->
+<!--                android:hint="၅၅၅၅၅၅"-->
+<!--                android:id="@+id/number"-->
+<!--                android:padding="20dp"/>-->
 
-            <Button
-                android:id="@+id/sure"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="သေချာပါသည်"
-                android:textColor="@color/color_white"
-                android:background="@color/successColor"
-                android:layout_marginTop="30dp"
-                android:padding="20dp"
-                android:textSize="20sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
+<!--            <Button-->
+<!--                android:id="@+id/sure"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="သေချာပါသည်"-->
+<!--                android:textColor="@color/color_white"-->
+<!--                android:background="@color/successColor"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:padding="20dp"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold"/>-->
+<!--        </LinearLayout>-->
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

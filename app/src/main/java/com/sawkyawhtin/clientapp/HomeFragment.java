@@ -48,8 +48,8 @@ public class HomeFragment extends Fragment {
     public static ArrayList<String> sampleImages = new ArrayList<>();
     View myView;
     static Context context;
-    static TextView txtallmovie,txtallseries,txtallcategory;
-    static RecyclerView allMovie,allSeries,allCategory;
+    static TextView txtallmovie,txtallseries,txtallcategory,txtAllLiveTV;
+    static RecyclerView allMovie,allSeries,allCategory,allLiveTV;
     static ImageListener imageListener = new ImageListener() {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {
@@ -68,15 +68,17 @@ public class HomeFragment extends Fragment {
         googleAds.loadThreeVerticalAds(myView,getContext(),getActivity());
         handler.postDelayed(runnable,10000);
         carouselView = myView.findViewById(R.id.carouselView);
-       allMovie = myView.findViewById(R.id.allmovie);
-       txtallmovie = myView.findViewById(R.id.txtmovie);
-       txtallseries = myView.findViewById(R.id.txtseries);
-       txtallcategory = myView.findViewById(R.id.txtcategory);
-       allCategory = myView.findViewById(R.id.allcategory);
-       allSeries  = myView.findViewById(R.id.allseies);
+        allMovie = myView.findViewById(R.id.allmovie);
+        txtallmovie = myView.findViewById(R.id.txtmovie);
+        txtallseries = myView.findViewById(R.id.txtseries);
+        txtallcategory = myView.findViewById(R.id.txtcategory);
+        allCategory = myView.findViewById(R.id.allcategory);
+        allSeries  = myView.findViewById(R.id.allseies);
+        allLiveTV = myView.findViewById(R.id.alllivetv);
+        txtAllLiveTV = myView.findViewById(R.id.txtLiveTV);
 
-       SeriesFragment.activity = getActivity();
-       MovieFragment.activity =  getActivity();
+        SeriesFragment.activity = getActivity();
+        MovieFragment.activity =  getActivity();
         context = getContext();
         HomeFragment.carouselView.setPageCount(sampleImages.size());
 
@@ -87,6 +89,7 @@ public class HomeFragment extends Fragment {
         fConnect.getAllCategory();
         fConnect.getAllMovies();
         fConnect.getAllSeries();
+        fConnect.getAllLiveTV();
 
 
         return  myView;
