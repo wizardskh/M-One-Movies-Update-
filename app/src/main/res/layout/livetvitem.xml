@@ -8,22 +8,26 @@
     android:background="@color/colorPrimary">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
         <ImageView
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="170dp"
             android:scaleType="fitXY"
-            android:id="@+id/image"/>
+            android:id="@+id/image"
+            android:src="@drawable/sampleimage"/>
         <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="Hello"
-            android:padding="@dimen/padding_20"
+            android:textStyle="bold"
+            android:padding="@dimen/padding_10"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"/>
+            android:textSize="15sp"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

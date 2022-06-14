@@ -1,4 +1,4 @@
-package com.sawkyawhtin.clientapp;
+package com.sawkyawhtin.clientappmone;
 
 import android.app.Activity;
 import android.content.Context;

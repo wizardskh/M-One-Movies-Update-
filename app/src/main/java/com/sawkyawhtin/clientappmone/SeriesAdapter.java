@@ -1,10 +1,11 @@
-package com.sawkyawhtin.clientapp;
+package com.sawkyawhtin.clientappmone;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.InterstitialAd;
@@ -56,6 +57,7 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.MovieHolde
         Glide.with(context)
                 .load(SeriesModels.get(position).seriesImage)
                 .into(holder.movieImage);
+        holder.textView.setText(SeriesModels.get(position).seriesName);
         holder.movieImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,10 +114,11 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.MovieHolde
 
     public class MovieHolder extends RecyclerView.ViewHolder{
         ImageView movieImage;
-
+        TextView textView;
         public MovieHolder(@NonNull View itemView) {
             super(itemView);
             movieImage = itemView.findViewById(R.id.image);
+            textView = itemView.findViewById(R.id.title);
         }
     }
 }

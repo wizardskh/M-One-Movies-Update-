@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment"
-    android:background="@color/colorPrimary">
+    android:background="@color/color_white">
 
     <!-- TODO: Update blank fragment layout -->
  <ScrollView
@@ -21,12 +21,12 @@
              android:id="@+id/carouselView"
              android:elevation="@dimen/cardview_compat_inset_shadow"
              android:layout_width="match_parent"
-             android:layout_height="200dp"
+             android:layout_height="250dp"
              app:fillColor="@color/colorAccent"
              app:pageColor="#00000000"
              app:radius="6dp"
              app:slideInterval="3000"
-             app:strokeColor="@color/color_white"
+             app:strokeColor="@color/colorOnPrimary"
              app:strokeWidth="1dp"/>
          <TextView
 
@@ -36,7 +36,7 @@
              android:layout_height="wrap_content"
              android:layout_below="@id/carouselView"
              android:text="All Category"
-             android:textColor="@color/color_white"/>
+             android:textColor="@color/colorOnPrimary"/>
 
          <androidx.recyclerview.widget.RecyclerView
              android:layout_below="@id/txtcategory"
@@ -56,7 +56,7 @@
              android:layout_height="wrap_content"
              android:layout_below="@id/adcontainer"
              android:text="All Movie"
-             android:textColor="@color/color_white"/>
+             android:textColor="@color/colorOnPrimary"/>
 
          <androidx.recyclerview.widget.RecyclerView
              android:layout_below="@id/txtmovie"
@@ -76,7 +76,7 @@
              android:layout_height="wrap_content"
              android:layout_below="@id/adcontainer2"
              android:text="All Series"
-             android:textColor="@color/color_white"/>
+             android:textColor="@color/gnt_black"/>
 
          <androidx.recyclerview.widget.RecyclerView
              android:layout_below="@id/txtseries"
@@ -91,7 +91,7 @@
              android:layout_height="wrap_content"
              android:layout_below="@id/allseies"
              android:text="All Live TV"
-             android:textColor="@color/color_white"/>
+             android:textColor="@color/gnt_black"/>
 
          <androidx.recyclerview.widget.RecyclerView
              android:layout_below="@id/txtLiveTV"

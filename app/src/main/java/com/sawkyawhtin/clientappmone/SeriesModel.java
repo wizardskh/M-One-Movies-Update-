@@ -1,4 +1,4 @@
-package com.sawkyawhtin.clientapp;
+package com.sawkyawhtin.clientappmone;
 
 public class SeriesModel {
     String seriesName,seriesImage,seriesCategory,createdAt;

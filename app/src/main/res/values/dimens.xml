@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="image_item_width">110dp</dimen>
-    <dimen name="image_item_height">170dp</dimen>
+    <dimen name="image_item_height">300dp</dimen>
     <dimen name="corner_radius">20dp</dimen>
     <dimen name="movie_item_margin">5dp</dimen>
     <dimen name="category_item_height">75dp</dimen>

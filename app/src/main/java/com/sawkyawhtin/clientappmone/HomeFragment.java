@@ -1,5 +1,5 @@
 
-package com.sawkyawhtin.clientapp;
+package com.sawkyawhtin.clientappmone;
 
 import android.content.Context;
 import android.os.Bundle;

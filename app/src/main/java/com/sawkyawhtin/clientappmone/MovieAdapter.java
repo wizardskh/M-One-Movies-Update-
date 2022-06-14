@@ -1,4 +1,4 @@
-package com.sawkyawhtin.clientapp;
+package com.sawkyawhtin.clientappmone;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -68,7 +68,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         Glide.with(context)
                 .load(movieModels.get(position).movieImage)
                 .into(holder.movieImage);
-
+        holder.textView.setText(movieModels.get(position).movieName);
 //        try {
 //            Bitmap image = getImage(movieModels.get(position).movieImage);
 //            holder.movieImage.setImageBitmap(image);
@@ -133,7 +133,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         public MovieHolder(@NonNull View itemView) {
             super(itemView);
             movieImage = itemView.findViewById(R.id.image);
-            textView = itemView.findViewById(R.id.text);
+            textView = itemView.findViewById(R.id.title);
         }
     }
 
